@@ -46,6 +46,8 @@ const Searchbar = () => {
     } catch (error) {
       console.log(error);
       setIsLoading(false);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -58,7 +60,11 @@ const Searchbar = () => {
         placeholder="Enter product link"
         className="searchbar-input"
       />
-      <button type="submit" className="searchbar-btn">
+      <button
+        type="submit"
+        className="searchbar-btn"
+        disabled={searchPrompt === ''}
+      >
         {isLoading ? 'Searching...' : 'Search'}
       </button>
     </form>
