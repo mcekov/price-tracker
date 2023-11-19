@@ -28,15 +28,14 @@ export async function scrapeAmazonProduct(url: string) {
     const title = $('#productTitle').text().trim();
 
     const currentPrice = extractPrice(
-      $('.a-price.a-text-price'),
-      $('.priceToPay span.a-price-whole'),
+      $('.a-price'),
+      $('.a-offscreen'),
       $('.a.size.base.a-color-price'),
       $('.a-button-selected .a-color-base')
     );
 
     const originalPrice = extractPrice(
-      $('#priceblock_ourprice'),
-      $('.a-price.a-text-price span.a-offscreen'),
+      $('.a-price span.a-offscreen'),
       $('#listPrice'),
       $('#priceblock_dealprice'),
       $('.a-size-base.a-color-price')
